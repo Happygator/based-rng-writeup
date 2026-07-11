@@ -42,36 +42,56 @@ I come back to the speedrun leaderboard to find my day ruined.
 
 I watch his run, and discover that the seed he used is way better than mine.
 SandwichMaster rolls fast room after fast room in his run and gets to perform
-tons of skips that I couldn't in my run, which uses just an "above average"
+tons of skips that I couldn't in my run, which used just an "above average"
 seed that I found by just playing a bunch of runs.
 
-It would be easy to just play through the seed he used with slightly tighter
-movement, but then my time would be vulnerable to getting sniped if he comes up
-with another, faster seed. In order to defend the spot thoroughly, I would have
-to find seeds myself until I could be truly sure that it was a high bar to clear.
+Everything's fine though! I'll just copy the seed from his video, be slightly
+faster on his movement, and resubmit to get 1st back!
+
+![but that's how losers think](images/losers-meme.gif)
+
+But what if he comes back, having done it slightly faster than I did? Even worse,
+what if he comes back with a new run on a different seed? I'll have to copy and
+play that seed *again* to catch up!
+
+I come to the conclusion that I'm going to need to find seeds myself until I can roll
+up to the leaderboard with something that won't be easily beaten. No problem, I'll just
+play a bunch of random seed runs until I find one with similar luck. That'll take, uhhh...
+
+An average BASED run takes about **3:15**, and every extra floor that falls as
+perfectly as SandwichMaster's is roughly **ten times rarer** than the last. Stack
+that up and "just grind seeds by hand" collapses fast:
+
+| Extra lucky floors | Rarer than my seed | Runs to expect one | Time at ~3:15 each |
+|:--|:-:|:-:|:-:|
+| +1 | 10× | ~10 | ~30 minutes |
+| +2 | 100× | ~100 | ~5 hours |
+| +3 | 1,000× | ~1,000 | ~2 days |
+| **+4 — SandwichMaster's seed** | **10,000×** | **~10,000** | **~3 weeks** |
+| +5 — a seed that *beats* him | 100,000× | ~100,000 | ~7 months |
+
+Three straight weeks of nonstop runs just to *match* his luck, and months more to
+pull ahead — all of it wasted the moment he finds something better. Grinding by
+hand was hopeless. If I wanted a seed nobody could touch, I'd have to stop
+*playing* the game and start taking it apart.
 
 ## What is a seed?
 
 Almost nothing in a video game is *truly* random.[^rng] When BASED needs to
-"randomly" decide which rooms you'll play through, which powerup appears on each
-floor, and where enemies spawn, it isn't rolling real dice — it's running a fixed
-formula that produces a fixed sequence of numbers. The single input to that
-formula is called the **seed**.
-
-The handy way to picture it: a seed is like a page number in an enormous book of
-pre-written "random" sequences. Feed the game the same seed and it turns to the
-same page every time — the same rooms, the same powerups, in the same order.
-Change the seed and you flip to a completely different page. That's why this kind
-of system is called a *pseudo*-random number generator: it looks random, but
-it's perfectly reproducible the moment you know the seed.
+decide which rooms you'll play through, which powerup appears on each
+floor, and what enemies spawn, it's running a fixed formula that produces a fixed 
+sequence of numbers. The single input to that formula is called the **seed**.[^design]
 
 A BASED run is 20 floors (19 are random, and floor 20 is always the predetermined
 goal room), and the seed fixes all of it in advance — the room on
-each floor, the powerup orb that floor hands you, and (together with a difficulty
-setting the player picks) which enemies show up. Type in seed `1` and you get
-exactly the same 20-floor layout as everyone else who has ever typed `1`.
+each floor, the powerup orb that floor hands you, and which enemies show up. Type 
+in seed `1` and you get exactly the same 20-floor layout as everyone else who has 
+ever typed `1`.
 
-That total reproducibility is the whole basis of a **Set Seed** run — and, as the
+That total reproducibility is the whole basis of a **Set Seed** run: with luck out
+of the picture, timesaves are found on raw execution.
+
+And, as the
 leaderboard taught me, it's far more competitive than it sounds, because rooms
 are not created equal. Some are short, some drag on; some powerups (a well-timed
 movement ability) let you skip huge chunks of a floor, while others do nothing
@@ -303,7 +323,9 @@ the single worst speedrun strategy I've ever seen.
 
 [^rng]: Strictly speaking, computers can't cook up true randomness on their own — they're deterministic machines that do exactly what they're told. To fake it convincingly, they seed their "randomness" from things that are miserable to predict: the exact sub-millisecond timing of your keystrokes and mouse jitters, noisy hardware and environment readings, or — famously — the wall of lava lamps that Cloudflare films and feeds into the randomness behind a big slice of the internet's encryption. BASED skips all of that and just starts from a number to enable setting seeds for runs.
 
-[^count]: Precisely 4,294,967,296 — that's 2³², every value a 32-bit integer can hold. I round it to "4.3 billion" throughout.
+[^design]: To be clear, this isn't a flaw — it's a deliberate design choice, and a completely standard one. Seeding a game's randomness from a single value is exactly what lets games offer reproducible, shareable runs: daily challenges, Set Seed races, "try this seed" links. Everything in this writeup just leans on that intended reproducibility; none of it relies on a bug.
+
+[^count]: Precisely 4,294,967,296, or 2³², for an unsigned 32 bit integer. My favorite number is roughly half that, at 2,147,483,647! (not a factorial I know you're waiting to make that joke)
 
 [^estimate]: The real run beat the estimated "best case time" of 2:14 for two reasons: I found a few extra timesaves while grinding attempts, and every room's time estimate is deliberately rounded up, so the predicted total always leans a little pessimistic.
 
