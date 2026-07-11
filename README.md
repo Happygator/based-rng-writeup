@@ -119,7 +119,9 @@ Since a run depends only on the 32-bit number the seed hashes to, I can ignore s
 
 
 ![Lying around](images/lie-around.png)
+
 *While the script runs, I can get down to important business like lying around and doing nothing.*
+
 ---
 
 ## Did it work?
