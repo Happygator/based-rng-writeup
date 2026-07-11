@@ -117,6 +117,9 @@ The obvious plan is to loop over seeds — `1`, `2`, `3`, and so on — score ea
 
 Since a run depends only on the 32-bit number the seed hashes to, I can ignore seed strings entirely and just march through the numbers themselves — 0, 1, 2, all the way up to 4.3 billion. Each one is a distinct possible run, with no duplicates and no gaps, so if I compute the best-case time for every number and store it in one enormous table, I'm no longer *sampling* anything: I've got the fastest time for every run the game can possibly produce. The catch is that the game won't let you type one of those numbers — it only takes a seed string, which it then hashes. So once the table points me at the winning number, I have to run the whole thing backward and dig up a seed string that hashes to exactly that value. The hash can't be reversed, so this is its own brute-force search — try strings until one lands on the target — but because the hash sprays strings roughly evenly across all 4.3 billion possibilities, any particular target is reachable with decent odds inside a few billion tries (roughly a 63% chance by the time you've tried 4.3 billion of them). All I have to do is find an appropriate string and type it in.
 
+
+![Lying around](images/lie-around.png)
+*While the script runs, I can get down to important business like lying around and doing nothing.*
 ---
 
 ## Did it work?
@@ -182,7 +185,7 @@ Hilariously, rigging set seeds can theoretically work for the random seed catego
 
 [^count]: Precisely 4,294,967,296, or 2³², for an unsigned 32 bit integer. My favorite number is roughly half that, at 2,147,483,647! (not a factorial I know you're waiting to make that joke)
 
-[^tech]: Using the **Spin** powerup in certain rooms flings the moon straight up outrageously fast. If you find and use the **Grapple** (grappling hook) powerup right after, you can hook onto the launched moon and catch up to it, blitzing through some rooms almost instantly.
+[^tech]: Using the **Spin** powerup in certain rooms flings the moon straight up outrageously fast. If you find and use the **Grapple** (grappling hook) powerup right after, you can hook onto the launched moon and catch up to it, blitzing through some rooms almost instantly. This was not used in any other run on the leaderboard because only about 1% of seeds line up everything(finding the room, finding Spin, finding a suitable followup room, finding Grapple in that room) to do this, and it's only *kinda* fast so the rest of the seed still has to be near-perfect.
 
 [^estimate]: The real run beat the estimated "best case time" of 2:14 for two reasons: I found a few extra timesaves while grinding attempts, and every room's time estimate is deliberately rounded up, so the predicted total always leans a little pessimistic.
 
