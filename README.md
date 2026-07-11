@@ -176,7 +176,7 @@ three steps:
 
 And here's the punchline that kicked off this entire project: because a run is
 nothing more than a function of one 32-bit number, there are only about **4.3
-billion** possible runs in the whole game — and typing a seed is just a way of
+billion**[^count] possible runs in the whole game — and typing a seed is just a way of
 landing on one of them, more or less at random. 4.3 billion sounds enormous, but
 to a computer it's small enough to grind through *every single one* and pick out
 the outright fastest run that exists. Which is exactly what I set out to do.
@@ -302,6 +302,8 @@ If you fail, though, you have to reboot your computer to try again, resulting in
 the single worst speedrun strategy I've ever seen.
 
 [^rng]: Strictly speaking, computers can't cook up true randomness on their own — they're deterministic machines that do exactly what they're told. To fake it convincingly, they seed their "randomness" from things that are miserable to predict: the exact sub-millisecond timing of your keystrokes and mouse jitters, noisy hardware and environment readings, or — famously — the wall of lava lamps that Cloudflare films and feeds into the randomness behind a big slice of the internet's encryption. BASED skips all of that and just starts from a number to enable setting seeds for runs.
+
+[^count]: Precisely 4,294,967,296 — that's 2³², every value a 32-bit integer can hold. I round it to "4.3 billion" throughout.
 
 [^estimate]: The real run beat the estimated "best case time" of 2:14 for two reasons: I found a few extra timesaves while grinding attempts, and every room's time estimate is deliberately rounded up, so the predicted total always leans a little pessimistic.
 
